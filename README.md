@@ -46,4 +46,4 @@ I then set the Responding Host, Listening Host loaded the payload then proceeded
 *   **Evidence:** [View  RHOSTS](ttps://github.com/user-attachments/assets/947c721b-989d-4e65-8408-1f129e6a7ed7)
 *   **Evidence:** [View Payloads](https://github.com/user-attachments/assets/4f641558-b0a7-4a82-b471-d068c6082cba)
 *   **Evidence:** [View Exploit](https://github.com/user-attachments/assets/456947ef-285a-4bc9-aad5-af2fd3ff82e9)
-*   **Evidence:** [View Kioptrix IP](https://github.com/user-attachments/assets/d1805912-3097-4605-80c7-5d089deab579)
+*   **Evidence:** [Gained Shell](https://github.com/user-attachments/assets/d1805912-3097-4605-80c7-5d089deab579)
